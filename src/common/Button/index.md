@@ -8,3 +8,22 @@ group:
 ---
 
 ## Button
+
+```tsx
+import React from 'react';
+import { Button } from 'WakUI-React';
+
+export default () => {
+  return(
+    <>
+      <Button>Default</Button>
+      <Button type='primary'>Primary</Button>
+      <Button type='dashed'>Primary</Button>
+      {/*<Button type='danger'>Primary</Button>*/}
+    </>
+  )
+}
+
+
+```
+<API></API>
