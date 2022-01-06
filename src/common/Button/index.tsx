@@ -94,7 +94,7 @@ const Button: React.FC<IButtonProps> = (props) => {
         })
       }else if (typeof item === "object" && !(item instanceof Array) && item.danger) {
         newClass.push(
-          `${componentName.toLowerCase()}${item.danger && "-danger"}${item.type ? "-" + item.type:''}`
+          `${componentName.toLowerCase()}${item.danger && "-danger"}${item.type ? " " + item.type:''}`
         )
       }
     })
