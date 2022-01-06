@@ -1,8 +1,9 @@
 import { defineConfig } from 'dumi';
+// import path from 'path'
 
 export default defineConfig({
   // alias: {
-  //   common: 'src/style/common.less',
+  //   '@@@': path.resolve(__dirname, '../src/')
   // },
   title: 'WakUI-React',
   favicon: '/logo.png',

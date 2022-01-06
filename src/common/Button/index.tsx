@@ -1,6 +1,5 @@
 import React, {ReactEventHandler, useState} from 'react';
 import './style/index.less'
-
 interface IButtonProps {
   /**
    * @description       将按钮宽度调整为其父宽度的选项
@@ -62,11 +61,13 @@ interface IButtonProps {
    * @description       点击按钮时的回调
    * @default           -
    */
-  onClick?: ReactEventHandler
+  onClick?: ReactEventHandler;
+  className?:string;
 }
 
 const Button: React.FC<IButtonProps> = (props) => {
-  console.log(props)
+  const {danger,type,className} = props
+  // console.log(props);
   const defaultProps:IButtonProps = {
     block:false,
     danger:false,
@@ -77,10 +78,45 @@ const Button: React.FC<IButtonProps> = (props) => {
     size:'middle',
     type:'default'
   }
-  // const [type,setType] = useState('default')
+  const componentName = 'wk-btn'
+  const classHandle = (componentName:string,...rest:any) =>{
+    let newClass = new Array<string>()
+    rest.forEach((item:any) => {
+      if (typeof item === "string") {
+        newClass.push(
+          `${componentName.toLowerCase()}${item && "-" + item}`
+        )
+      }else if (item instanceof Array) {
+        item.forEach((subItem:boolean|string) =>{
+          if (typeof subItem === "string") {
+            newClass = [componentName,subItem]
+          }
+        })
+      }else if (typeof item === "object" && !(item instanceof Array) && item.danger) {
+        newClass.push(
+          `${componentName.toLowerCase()}${item.danger && "-danger"}${item.type ? "-" + item.type:''}`
+        )
+      }
+    })
+    return newClass.join(' ')
+  }
+  const btnClassName = classHandle(componentName,'',[type,className],danger)
+  const btnDanger = classHandle(componentName,{type,danger})
+
+  console.log(btnDanger,'123')
+  //danger的按钮单独渲染
+  if (props.danger) {
+    return(
+      <>
+        <button className={btnDanger}>
+          <span className={'wk-btn-inner'}>{props.children}</span>
+        </button>
+      </>
+    )
+  }
   return(
     <>
-      <button className={`wk-btn `+`${props.type||defaultProps.type}`}>
+      <button className={btnClassName}>
         <span className={'wk-btn-inner'}>{props.children}</span>
       </button>
     </>

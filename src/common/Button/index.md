@@ -19,7 +19,11 @@ export default () => {
       <Button>Default</Button>
       <Button type='primary'>Primary</Button>
       <Button type='dashed'>Dashed</Button>
-      <Button type='danger'>Danger</Button>
+      <Button danger >Danger</Button>
+      <Button danger type='primary'>Danger</Button>
+      <Button danger type='dashed'>Danger</Button>
+      <Button danger type='text'>Danger</Button>
+      <Button danger type='link'>Danger</Button>
     </>
   )
 }
