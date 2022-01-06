@@ -8,8 +8,13 @@ group:
 ---
 
 ## Button
-普通Button
+## 代码示例
+
 ```tsx
+/**
+ * title: 普通类型
+ * desc: 普通按钮有五种类型：主要按钮、默认按钮、虚线按钮、文字按钮、链接按钮
+ */
 import React from 'react';
 import { Button } from 'WakUI-React';
 
@@ -25,9 +30,14 @@ export default () => {
   )
 }
 ```
-危险按钮
+
 
 ```tsx
+/**
+ * title: danger类型
+ * desc: danger按钮同普通按钮,共五种按钮
+ */
+
 import React from 'react';
 import { Button } from 'WakUI-React';
 

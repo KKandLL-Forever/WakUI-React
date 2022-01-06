@@ -27,10 +27,17 @@
 //普通
 .wk-btn{
   .basicBtnCss(@color-match-neutral-content,@color-match-neutral-border);
+  &:hover{
+    color: @color-match-main-primary;
+    border-color: @color-match-main-primary;
+  }
   &.primary{
     background-color: @btn-primary-bg;
     color: #ffffff;
     border: 1px solid transparent;
+    &:hover{
+      background: lighten(@color-match-main-primary,15%);
+    }
   }
   &.dashed{
     border-style: dashed;
@@ -42,6 +49,9 @@
   &.text{
     border: none;
     color: @color-match-main-primary;
+    &:hover{
+      background: lighten(@color-match-neutral-background,20%);
+    }
   }
   &.link{
     border: none;
