@@ -2,6 +2,10 @@
 //https://github.com/umijs/dumi/issues/824
 @import "../../../style/variable";
 
+/*
+  @color 字体颜色
+  @border-color border颜色
+*/
 .basicBtnCss(@color,@border-color){
   display: inline-flex;
   justify-content: center;
@@ -20,6 +24,7 @@
   transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
+//普通
 .wk-btn{
   .basicBtnCss(@color-match-neutral-content,@color-match-neutral-border);
   &.primary{
@@ -47,21 +52,36 @@
     line-height: inherit;
   }
 }
+//danger
 .wk-btn-danger{
   .basicBtnCss(@color-match-func-error,@color-match-func-error);
+  &:hover{
+    color: lighten(@color-match-func-error,20%);
+    border-color: lighten(@color-match-func-error,20%);
+  }
   &.primary{
     background: @color-match-func-error;
     color: @font-color-white;
     border-color: transparent;
+    &:hover{
+      background: lighten(@color-match-func-error,20%);
+    }
   }
   &.dashed{
     border-style: dashed;
+    &:hover{
+      color: lighten(@color-match-func-error,20%);
+      border-color: lighten(@color-match-func-error,20%);
+    }
   }
   &.link{
     border: none;
   }
   &.text{
     border: none;
+    &:hover{
+      background: lighten(@color-match-neutral-background,20%);
+    }
   }
 }
 
