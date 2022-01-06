@@ -10,6 +10,10 @@ interface IconProps extends React.SVGAttributes<SVGElement>{
 }
 
 const Icon:React.FC<IconProps> = (props) => {
+
+  const iconClass =[]
+
+
   return (
     <svg className='wk-icon' style={{width:'1rem'}}>
       <use xlinkHref="#icon-setting"/>

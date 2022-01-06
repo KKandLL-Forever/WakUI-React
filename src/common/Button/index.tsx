@@ -1,5 +1,7 @@
-import React, {ReactEventHandler, useState} from 'react';
+import React, {ReactEventHandler} from 'react';
 import './style/index.less'
+import {classHandle} from '../../utils/classNameHandle'
+
 interface IButtonProps {
   /**
    * @description       将按钮宽度调整为其父宽度的选项
@@ -68,38 +70,17 @@ interface IButtonProps {
 const Button: React.FC<IButtonProps> = (props) => {
   const {danger,type,className} = props
   // console.log(props);
-  const defaultProps:IButtonProps = {
-    block:false,
-    danger:false,
-    disable: false,
-    ghost:false,
-    loading: false,
-    shape:'default',
-    size:'middle',
-    type:'default'
-  }
-  const componentName = 'wk-btn'
-  const classHandle = (componentName:string,...rest:any) =>{
-    let newClass = new Array<string>()
-    rest.forEach((item:any) => {
-      if (typeof item === "string") {
-        newClass.push(
-          `${componentName.toLowerCase()}${item && "-" + item}`
-        )
-      }else if (item instanceof Array) {
-        item.forEach((subItem:boolean|string) =>{
-          if (typeof subItem === "string") {
-            newClass = [componentName,subItem]
-          }
-        })
-      }else if (typeof item === "object" && !(item instanceof Array) && item.danger) {
-        newClass.push(
-          `${componentName.toLowerCase()}${item.danger && "-danger"}${item.type ? " " + item.type:''}`
-        )
-      }
-    })
-    return newClass.join(' ')
-  }
+  // const defaultProps:IButtonProps = {
+  //   block:false,
+  //   danger:false,
+  //   disable: false,
+  //   ghost:false,
+  //   loading: false,
+  //   shape:'default',
+  //   size:'middle',
+  //   type:'default'
+  // }
+  const componentName = 'btn'
   const btnClassName = classHandle(componentName,'',[type,className],danger)
   const btnDanger = classHandle(componentName,{type,danger})
 
