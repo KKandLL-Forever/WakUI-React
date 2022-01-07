@@ -1,6 +1,7 @@
 import React, {CSSProperties} from 'react';
 import '../../utils/icon-svg.js'
 import './index.less'
+import {classHandle} from "../../utils/classNameHandle";
 
 interface IconProps extends React.SVGAttributes<SVGElement>{
   className?:string,
@@ -10,13 +11,15 @@ interface IconProps extends React.SVGAttributes<SVGElement>{
 }
 
 const Icon:React.FC<IconProps> = (props) => {
-
-  const iconClass =[]
+  const {className,iconName,spin,style} = props
+  const componentName = 'icon'
+  const iconClass = classHandle(componentName,'',{spin})
+  console.log(iconClass,'iconClass');
 
 
   return (
-    <svg className='wk-icon' style={{width:'1rem'}}>
-      <use xlinkHref="#icon-setting"/>
+    <svg className={iconClass}>
+      <use xlinkHref={`#icon-${iconName}`}/>
     </svg>
   );
 };

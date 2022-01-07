@@ -81,10 +81,11 @@ const Button: React.FC<IButtonProps> = (props) => {
   //   type:'default'
   // }
   const componentName = 'btn'
-  const btnClassName = classHandle(componentName,'',[type,className],danger)
+  const btnClassName = classHandle(componentName,'',[type,className])
   const btnDanger = classHandle(componentName,{type,danger})
 
-  console.log(btnDanger,'123')
+  console.log(btnClassName,'345')
+  // console.log(btnDanger,'123')
   //danger的按钮单独渲染
   if (props.danger) {
     return(

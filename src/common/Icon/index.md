@@ -21,8 +21,8 @@ import { Icon } from 'WakUI-React';
 export default () => {
   return(
     <>
-      <Icon className={'wk-icon'}></Icon>
-      <Icon className={'wk-icon'} ></Icon>
+      <Icon iconName='setting'></Icon>
+      <Icon iconName='setting' spin></Icon>
     </>
   )
 }
