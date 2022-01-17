@@ -1,8 +1,16 @@
 .wk-icon {
-  width:1rem;
-  height: 1rem;
+  width:1.5rem;
+  height: 1.5rem;
   display: inline-flex;
   fill: currentColor;
   vertical-align: top;
   overflow: hidden;
+  &.spin{
+    animation: myRotate 3s linear infinite;
+    @keyframes myRotate{
+      0% {transform: rotate(0deg)}
+      50% {transform: rotate(180deg)}
+      100% {transform: rotate(360deg)}
+    }
+  }
 }
