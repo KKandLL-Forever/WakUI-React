@@ -14,7 +14,7 @@ const Icon:React.FC<IconProps> = (props) => {
   const {className,iconName,spin,style} = props
   const componentName = 'icon'
   const iconClass = classHandle(componentName,'',{spin})
-  console.log(iconClass,'iconClasssss');
+  console.log(iconClass,'iconClasssssssss');
 
   return (
     <svg className={iconClass}>
